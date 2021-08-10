@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/index.js",
-    "test": "jest"
+    "test": "jest",
+    "create": "node ./database/setup.js",
+    "etl": "node ./database/ETL.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,9 @@
     "knex": "^0.21.21",
     "node": "^16.6.1",
     "nodemon": "^2.0.12",
+    "path": "^0.12.7",
+    "pg": "^8.7.1",
+    "pg-copy-streams": "^5.1.1",
     "postgres": "^1.0.2"
   },
   "devDependencies": {
@@ -32,6 +37,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.0",
+    "fs": "^0.0.1-security",
     "jest": "^27.0.6",
     "supertest": "^6.1.4"
   }
