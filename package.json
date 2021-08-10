@@ -1,0 +1,38 @@
+{
+  "name": "sdc-qa",
+  "version": "1.0.0",
+  "description": "API Service implementation for consumer goods website",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackreactor-lax45-frontendcapstone/sdc-qa.git"
+  },
+  "keywords": [],
+  "author": "Sean Lawlor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hackreactor-lax45-frontendcapstone/sdc-qa/issues"
+  },
+  "homepage": "https://github.com/hackreactor-lax45-frontendcapstone/sdc-qa#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.21",
+    "node": "^16.6.1",
+    "nodemon": "^2.0.12",
+    "postgres": "^1.0.2"
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.0",
+    "jest": "^27.0.6",
+    "supertest": "^6.1.4"
+  }
+}
