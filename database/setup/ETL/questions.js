@@ -5,11 +5,11 @@ const { Pool } = require('pg');
 const copyFrom = require('pg-copy-streams').from;
 const config = require('../../config/config');
 
-module.exports = () => {
+module.exports = (extension) => {
   const target = 'questions';
   console.log(`${target}: copying data from file.`);
   // Input file & target table
-  const inputFile = path.join(__dirname, `../../../data/example_${target}.csv`);
+  const inputFile = path.join(__dirname, `../../../data/${extension}${target}.csv`);
 
   const pool = new Pool(config);
 

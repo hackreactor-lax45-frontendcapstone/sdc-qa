@@ -1,10 +1,12 @@
 const schema = require('./setup/schema');
 const ETL = require('./setup/ETL');
 
+const EXTENSION = '';
+
 schema()
   .then(() => console.log('\n======== Populating ========'))
-  .then(() => ETL.questions())
-  .then(() => ETL.answers())
-  .then(() => ETL.photos())
+  .then(() => ETL.questions(EXTENSION))
+  .then(() => ETL.answers(EXTENSION))
+  .then(() => ETL.photos(EXTENSION))
   .then(() => console.log('All data populated without error.'))
   .catch((error) => console.error(error));
