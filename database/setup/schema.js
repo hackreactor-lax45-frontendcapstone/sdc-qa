@@ -27,6 +27,7 @@ module.exports = () => postgres.schema
     console.log('Creating \'answers\' table.');
     table.increments('id');
     table.integer('question_id');
+    table.foreign('question_id').references('questions.id');
     table.string('body');
     table.string('date_written');
     table.string('answerer_name');
@@ -38,6 +39,7 @@ module.exports = () => postgres.schema
     console.log('Creating \'photos\' table.');
     table.increments('id');
     table.integer('answer_id');
+    table.foreign('answer_id').references('answers.id');
     table.string('url');
   })
   .then(() => console.log('Successfully created database schemas.'))
