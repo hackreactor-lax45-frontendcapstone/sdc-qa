@@ -1,5 +1,6 @@
 const schema = require('./schema');
 const ETL = require('./ETL');
+const db = require('../index');
 
 const EXTENSION = 'example_';
 
