@@ -19,10 +19,14 @@ module.exports = (extension) => {
       const fileStream = fs.createReadStream(inputFile);
       fileStream.on('error', (error) => {
         console.log(`${target}: (fileStream) ${error}`);
+        fileStream.end();
+        done();
         reject();
       });
       stream.on('error', (error) => {
         console.log(`${target}: (stream) ${error}`);
+        client.end();
+        done();
         reject();
       });
       stream.on('finish', () => {
