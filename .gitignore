@@ -1,6 +1,7 @@
 #
 *DS_Store
 data/
+config.js
 
 # Logs
 logs
