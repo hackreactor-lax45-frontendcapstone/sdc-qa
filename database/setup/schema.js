@@ -1,11 +1,4 @@
-const knex = require('knex');
-const config = require('../config/config');
-
-const postgres = knex({
-  client: 'pg',
-  connection: config,
-  pool: { min: 2, max: 10 },
-});
+const postgres = require('../index');
 
 module.exports = () => postgres.schema
   .dropTableIfExists('photos')
@@ -17,7 +10,7 @@ module.exports = () => postgres.schema
     table.increments('id');
     table.integer('product_id');
     table.string('body');
-    table.string('date_written');
+    table.float('date_written');
     table.string('asker_name');
     table.string('asker_email');
     table.boolean('reported');
@@ -29,7 +22,7 @@ module.exports = () => postgres.schema
     table.integer('question_id');
     table.foreign('question_id').references('questions.id');
     table.string('body');
-    table.string('date_written');
+    table.float('date_written');
     table.string('answerer_name');
     table.string('answerer_email');
     table.boolean('reported');

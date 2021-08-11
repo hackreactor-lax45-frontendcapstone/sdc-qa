@@ -1,5 +1,5 @@
-const schema = require('./setup/schema');
-const ETL = require('./setup/ETL');
+const schema = require('./schema');
+const ETL = require('./ETL');
 
 const EXTENSION = 'example_';
 
