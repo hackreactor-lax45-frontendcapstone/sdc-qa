@@ -1,7 +1,7 @@
 const db = require('../../database/index');
 
 module.exports = (req, res) => {
-  console.log('\x1b[36m%s\x1b[0m', 'POST /qa/questions');
+  console.log('\x1b[33m%s\x1b[0m', 'POST /qa/questions');
 
   const {
     body,
