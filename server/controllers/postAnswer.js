@@ -20,9 +20,15 @@ module.exports = (req, res) => {
     helpful: 0,
   };
 
-  db('answers').insert(answer)
-    .then(() => res.sendStatus(201))
+  db('answers').insert(answer, 'id')
+    .then((answer_id) => photos.map((photo, i) => ({
+      answer_id: answer_id[0],
+      url: photos[i],
+    })))
+    .then((photoObj) => {
+      db('photos').insert(photoObj)
+        .then(() => res.sendStatus(201))
+        .catch((error) => console.error(error));
+    })
     .catch((error) => res.status(404).send(error));
-
-  db('photos').insert(photos);
 };
