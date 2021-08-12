@@ -1,5 +1,5 @@
 const express = require('express');
-const controllers = require('./controllers/index');
+const controllers = require('../controllers/index');
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ const router = express.Router();
 */
 router
   .get('/questions', controllers.getQuestions)
-  .get('/questions/:question_id/answers', controllers.else);
+  .get('/questions/:question_id/answers', controllers.getAnswers);
 
 router
   .post('/questions', controllers.else)

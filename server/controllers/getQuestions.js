@@ -1,4 +1,4 @@
-const CONSTANTS = require('../config/constants');
+const { GET_QUESTIONS } = require('../config/constants');
 const db = require('../../database/index');
 
 module.exports = (req, res) => {
@@ -9,7 +9,7 @@ module.exports = (req, res) => {
     qid: {},
     aid: {},
   };
-  db('questions').where({ product_id }).select(CONSTANTS.QUESTION_SELECT)
+  db('questions').where({ product_id }).select(GET_QUESTIONS.QUESTION_SELECT)
     .then((questions) => {
       const questionIds = [];
       questions.forEach((question) => {
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
       });
       return questionIds;
     })
-    .then((questionId) => db('answers').whereIn('question_id', questionId).select(CONSTANTS.ANSWER_SELECT))
+    .then((questionId) => db('answers').whereIn('question_id', questionId).select(GET_QUESTIONS.ANSWER_SELECT))
     .then((answers) => {
       const answerIds = [];
       answers.forEach((answer) => {
@@ -31,7 +31,7 @@ module.exports = (req, res) => {
       });
       return answerIds;
     })
-    .then((answerId) => db('photos').whereIn('answer_id', answerId).select(CONSTANTS.PHOTO_SELECT))
+    .then((answerId) => db('photos').whereIn('answer_id', answerId).select(GET_QUESTIONS.PHOTO_SELECT))
     .then((photos) => {
       photos.forEach((photo) => {
         const index = response.aid[photo.answer_id];
