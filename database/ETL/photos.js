@@ -3,16 +3,13 @@ const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
 const copyFrom = require('pg-copy-streams').from;
-const config = require('../../config/config');
 
-module.exports = (extension) => {
-  const target = 'answers';
+module.exports = (config, extension) => {
+  const target = 'photos';
   console.log(`${target}: copying data from file.`);
-  // Input file & target table
-  const inputFile = path.join(__dirname, `../../../data/${extension}${target}.csv`);
 
+  const inputFile = path.join(__dirname, `../../data/${extension}${target}.csv`);
   const pool = new Pool(config);
-
   return new Promise((resolve, reject) => {
     pool.connect((err, client, done) => {
       const stream = client.query(copyFrom(`COPY ${target} FROM STDIN CSV header`));

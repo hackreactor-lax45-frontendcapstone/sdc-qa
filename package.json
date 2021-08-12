@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon ./server/index.js",
     "test": "jest",
-    "setup": "node ./database/setup/index.js"
+    "setup": "node ./database/setup/index.js",
+    "setup:test": "node ./database/test/setup.js"
   },
   "repository": {
     "type": "git",

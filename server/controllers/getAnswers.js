@@ -4,7 +4,13 @@ const db = require('../../database/index');
 module.exports = (req, res) => {
   const { question_id } = req.params;
   const { page, count } = req.query;
-  const response = { question: question_id, page, count, results: [], aid: {} };
+  const response = {
+    question: question_id,
+    page,
+    count,
+    results: [],
+    aid: {},
+  };
 
   db('answers').whereIn('question_id', [question_id]).select(GET_ANSWERS.ANSWER_SELECT)
     .then((answers) => {

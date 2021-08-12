@@ -1,6 +1,4 @@
-const postgres = require('../index');
-
-module.exports = () => postgres.schema
+module.exports = (client) => client.schema
   .dropTableIfExists('photos')
   .dropTableIfExists('answers')
   .dropTableIfExists('questions')
@@ -40,4 +38,4 @@ module.exports = () => postgres.schema
   })
   .then(() => console.log('Successfully created database schemas.'))
   .catch((err) => console.error(err))
-  .finally(() => postgres.destroy(() => console.log('Connection closed.')));
+  .finally(() => client.destroy(() => console.log('Connection closed.')));
