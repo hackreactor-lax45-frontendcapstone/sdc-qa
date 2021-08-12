@@ -1,5 +1,5 @@
 const { GET_ANSWERS } = require('../config/constants');
-const db = require('../../database/test/index');
+const db = require('../../database/index');
 
 module.exports = (req, res) => {
   const {
@@ -18,7 +18,6 @@ module.exports = (req, res) => {
     reported: false,
     helpful: 0,
   };
-  console.log(question);
 
   db('questions').insert(question)
     .then(() => res.sendStatus(201))
