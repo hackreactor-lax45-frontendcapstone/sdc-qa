@@ -11,15 +11,15 @@ router
   .get('/questions/:question_id/answers', controllers.getAnswers);
 
 router
-  .post('/questions', controllers.else)
-  .post('/questions/:question_id/answers', controllers.else);
+  .post('/questions', controllers.postQuestion)
+  .post('/questions/:question_id/answers', controllers.postAnswer);
 
 router
-  .put('/questions/:question_id/helpful', controllers.else)
-  .put('/questions/:question_id/report', controllers.else);
+  .put('/questions/:question_id/helpful', controllers.helpfulQuestion)
+  .put('/questions/:question_id/report', controllers.reportQuestion);
 
 router
-  .put('/answers/:answer_id/helpful', controllers.else)
-  .put('/answers/:answer_id/report', controllers.else);
+  .put('/answers/:answer_id/helpful', controllers.helpfulAnswer)
+  .put('/answers/:answer_id/report', controllers.reportAnswer);
 
 module.exports = router;

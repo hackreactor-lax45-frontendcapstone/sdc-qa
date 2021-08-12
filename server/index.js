@@ -5,6 +5,7 @@ const { SERVER } = require('./config/constants');
 
 const app = express();
 
+app.use(express.json());
 app.use('/qa', router);
 app.use('/hello', (req, res) => res.status(200).send('Wingardium, leviosa!\n'));
 
