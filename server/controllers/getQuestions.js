@@ -2,6 +2,8 @@ const { GET_QUESTIONS } = require('../config/constants');
 const db = require('../../database/index');
 
 module.exports = (req, res) => {
+  console.log('\x1b[36m%s\x1b[0m', 'GET /qa/questions');
+
   const { product_id } = req.query;
   const response = {
     product_id,

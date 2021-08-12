@@ -1,6 +1,8 @@
 const db = require('../../database/test/index');
 
 module.exports = (req, res) => {
+  console.log('\x1b[36m%s\x1b[0m', 'PUT /qa/answers/:question_id/helpful');
+
   const { question_id } = req.params;
 
   db('questions').where({ id: question_id })
