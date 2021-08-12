@@ -37,5 +37,4 @@ module.exports = (client) => client.schema
     table.string('url');
   })
   .then(() => console.log('Successfully created database schemas.'))
-  .catch((err) => console.error(err))
-  .finally(() => client.destroy(() => console.log('Connection closed.')));
+  .catch((err) => console.error(err));
