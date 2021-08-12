@@ -9,22 +9,18 @@ module.exports = (req, res) => {
     qid: {},
     aid: {},
   };
-  let now = new Date();
   db('questions').where({ product_id }).select(CONSTANTS.QUESTION_SELECT)
     .then((questions) => {
-      console.log('elapsed for questions query: ', new Date() - now);
       const questionIds = [];
       questions.forEach((question) => {
         response.results.push({ ...question, answers: {} });
         response.qid[question.question_id] = questionIds.length;
         questionIds.push(question.question_id);
       });
-      now = new Date();
       return questionIds;
     })
     .then((questionId) => db('answers').whereIn('question_id', questionId).select(CONSTANTS.ANSWER_SELECT))
     .then((answers) => {
-      console.log('elapsed for answers: ', new Date() - now);
       const answerIds = [];
       answers.forEach((answer) => {
         answerIds.push(answer.id);
@@ -37,7 +33,6 @@ module.exports = (req, res) => {
     })
     .then((answerId) => db('photos').whereIn('answer_id', answerId).select(CONSTANTS.PHOTO_SELECT))
     .then((photos) => {
-      console.log('elapsed for photos: ', new Date() - now);
       photos.forEach((photo) => {
         const index = response.aid[photo.answer_id];
         response.results[index].answers[photo.answer_id] = photo;
