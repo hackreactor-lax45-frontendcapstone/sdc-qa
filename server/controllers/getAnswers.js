@@ -25,7 +25,6 @@ module.exports = (req, res) => {
     })
     .then((answerId) => db('photos').whereIn('answer_id', answerId).select(GET_ANSWERS.PHOTO_SELECT))
     .then((photos) => {
-      console.log(photos);
       photos.forEach((photo) => {
         const index = response.aid[photo.answer_id];
         delete photo.answer_id;
