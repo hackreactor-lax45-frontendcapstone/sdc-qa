@@ -1,22 +1,25 @@
 const express = require('express');
-const controllers = require('./controllers');
+const controllers = require('./controllers/index');
 
 const router = express.Router();
 
+/*
+    /qa
+*/
 router
-  .get('/', controllers)
-  .get('/', controllers);
+  .get('/questions', controllers.getQuestions)
+  .get('/questions/:question_id/answers', controllers.else);
 
 router
-  .post('/', controllers)
-  .post('/', controllers);
+  .post('/questions', controllers.else)
+  .post('/questions/:question_id/answers', controllers.else);
 
 router
-  .put('/', controllers)
-  .put('/', controllers);
+  .put('/questions/:question_id/helpful', controllers.else)
+  .put('/questions/:question_id/report', controllers.else);
 
 router
-  .put('/', controllers)
-  .put('/', controllers);
+  .put('/answers/:answer_id/helpful', controllers.else)
+  .put('/answers/:answer_id/report', controllers.else);
 
 module.exports = router;
