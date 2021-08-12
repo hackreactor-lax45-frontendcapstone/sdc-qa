@@ -35,7 +35,7 @@ module.exports = (req, res) => {
     .then((photos) => {
       photos.forEach((photo) => {
         const index = response.aid[photo.answer_id];
-        response.results[index].answers[photo.answer_id] = photo;
+        response.results[index].answers[photo.answer_id].photos.push(photo);
         delete photo.answer_id;
       });
       delete response.qid;
