@@ -6,7 +6,6 @@
 *.pem
 *login.sh
 *cookie
-package-lock.json
 
 # Logs
 logs
