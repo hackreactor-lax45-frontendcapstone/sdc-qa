@@ -1,8 +1,7 @@
 const schema = require('./schema');
 const ETL = require('./ETL');
-const db = require('../index');
 
-const EXTENSION = 'example_';
+const EXTENSION = '';
 
 schema()
   .then(() => console.log('\n======== Populating ========'))

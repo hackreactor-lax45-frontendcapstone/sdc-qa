@@ -15,12 +15,14 @@ module.exports = () => postgres.schema
     table.string('asker_email');
     table.boolean('reported');
     table.integer('helpful');
+    table.index('product_id');
   })
   .createTable('answers', (table) => {
     console.log('Creating \'answers\' table.');
     table.increments('id');
     table.integer('question_id');
     table.foreign('question_id').references('questions.id');
+    table.index('question_id');
     table.string('body');
     table.float('date_written');
     table.string('answerer_name');
@@ -33,6 +35,7 @@ module.exports = () => postgres.schema
     table.increments('id');
     table.integer('answer_id');
     table.foreign('answer_id').references('answers.id');
+    table.index('answer_id');
     table.string('url');
   })
   .then(() => console.log('Successfully created database schemas.'))
