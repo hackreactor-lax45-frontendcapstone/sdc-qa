@@ -7,13 +7,13 @@ module.exports = (client) => client.schema
     console.log('Creating \'questions\' table.');
     table.increments('id');
     table.integer('product_id');
+    table.index('product_id');
     table.string('body');
     table.float('date_written');
     table.string('asker_name');
     table.string('asker_email');
     table.boolean('reported');
     table.integer('helpful');
-    table.index('product_id');
   })
   .createTable('answers', (table) => {
     console.log('Creating \'answers\' table.');
