@@ -5,6 +5,7 @@
 *config.js
 *.pem
 *login.sh
+*cookie
 
 # Logs
 logs
