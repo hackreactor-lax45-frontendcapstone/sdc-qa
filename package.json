@@ -4,6 +4,7 @@
   "description": "API Service implementation for consumer goods website",
   "main": "index.js",
   "scripts": {
+    "start:debug": "DEBUG=express:* node ./server/index.js",
     "start": "nodemon ./server/index.js",
     "test": "jest --detectOpenHandles",
     "setup": "node ./database/setup/index.js",
@@ -21,12 +22,14 @@
   },
   "homepage": "https://github.com/hackreactor-lax45-frontendcapstone/sdc-qa#readme",
   "dependencies": {
+    "@newrelic/native-metrics": "^7.0.1",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "forever": "^4.0.1",
     "knex": "^0.21.21",
     "moment": "^2.29.1",
+    "newrelic": "^8.1.0",
     "node": "^16.6.1",
     "nodemon": "^2.0.12",
     "path": "^0.12.7",
@@ -43,7 +46,6 @@
     "eslint-plugin-import": "^2.24.0",
     "fs": "^0.0.1-security",
     "jest": "^27.0.6",
-    "newrelic": "^8.1.0",
     "supertest": "^6.1.4"
   }
 }
