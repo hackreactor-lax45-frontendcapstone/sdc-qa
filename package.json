@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/index.js",
-    "test": "jest --coverage",
+    "test": "jest",
     "setup": "node ./database/setup/index.js",
     "setup:test": "node ./database/test/setup.js"
   },
