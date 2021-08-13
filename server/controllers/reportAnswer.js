@@ -1,7 +1,7 @@
 const db = require('../../database/test/index');
 
 module.exports = (req, res) => {
-  console.log('\x1b[35m%s\x1b[0m', 'PUT /qa/answers/:answer_id/report');
+  // console.log('\x1b[35m%s\x1b[0m', 'PUT /qa/answers/:answer_id/report');
 
   const { answer_id } = req.params;
 
