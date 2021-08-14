@@ -7,6 +7,7 @@
 *login.sh
 *cookie
 newrelic.js
+*.sql
 
 # Logs
 logs

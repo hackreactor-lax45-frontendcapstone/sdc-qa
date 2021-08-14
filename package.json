@@ -26,7 +26,6 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "forever": "^4.0.1",
     "knex": "^0.21.21",
     "moment": "^2.29.1",
     "newrelic": "^8.1.0",
@@ -35,6 +34,7 @@
     "path": "^0.12.7",
     "pg": "^8.7.1",
     "pg-copy-streams": "^5.1.1",
+    "pm2": "^5.1.0",
     "postgres": "^1.0.2"
   },
   "devDependencies": {
