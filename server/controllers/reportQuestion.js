@@ -7,6 +7,8 @@ module.exports = (req, res) => {
 
   db('questions').where({ id: question_id })
     .update({ reported: true })
-    .then(() => res.sendStatus(204))
+    .then((response) => {
+      res.status(204).json(response);
+    })
     .catch((error) => res.status(404).send(error));
 };
