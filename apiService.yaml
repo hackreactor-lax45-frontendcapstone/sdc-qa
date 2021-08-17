@@ -1,5 +1,9 @@
 version: '3.9'
 
+volumes:
+  database:
+    external: true
+
 services:
   qanda-service:
     image: lawlorseanr/qanda-service:latest
