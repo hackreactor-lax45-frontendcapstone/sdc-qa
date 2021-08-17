@@ -2,4 +2,4 @@ FROM postgres:latest
 ENV POSTGRES_USER lawlorseanr
 ENV POSTGRES_PASSWORD hackReactor
 ENV POSTGRES_DB 'qanda'
-COPY qanda.sql /docker-entrypoint-initdb.d/
+COPY ../qanda.sql /docker-entrypoint-initdb.d/
