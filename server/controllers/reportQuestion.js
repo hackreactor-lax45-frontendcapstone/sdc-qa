@@ -1,4 +1,4 @@
-const db = require('../../database/test/index');
+const db = require('../../database/index');
 
 module.exports = (req, res) => {
   // console.log('\x1b[35m%s\x1b[0m', 'PUT /qa/questions/:question_id/report');
