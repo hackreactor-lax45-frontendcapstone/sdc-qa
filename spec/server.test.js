@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 const axios = require('axios');
 
-const URL = 'http://13.57.37.87:3000';
+const URL = 'http://18.144.34.24:80';
 const QUESTIONS = `${URL}/qa/questions`;
 
 describe('GET questions from single product', () => {
