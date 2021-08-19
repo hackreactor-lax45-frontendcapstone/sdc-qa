@@ -22,8 +22,4 @@ router
   .put('/answers/:answer_id/helpful', controllers.helpfulAnswer)
   .put('/answers/:answer_id/report', controllers.reportAnswer);
 
-router
-  .get('/photos', controllers.getOnlyPhotos)
-  .get('/answers', controllers.getOnlyAnswers);
-
 module.exports = router;

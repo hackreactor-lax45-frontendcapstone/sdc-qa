@@ -6,8 +6,6 @@ const helpfulQuestion = require('./helpfulQuestion');
 const reportQuestion = require('./reportQuestion');
 const helpfulAnswer = require('./helpfulAnswer');
 const reportAnswer = require('./reportAnswer');
-const getOnlyPhotos = require('./getOnlyPhotos');
-const getOnlyAnswers = require('./getOnlyAnswers');
 
 module.exports = {
   getQuestions,
@@ -18,6 +16,4 @@ module.exports = {
   reportQuestion,
   helpfulAnswer,
   reportAnswer,
-  getOnlyPhotos,
-  getOnlyAnswers,
 };
