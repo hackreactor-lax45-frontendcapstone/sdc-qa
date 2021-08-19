@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:debug": "DEBUG=express:* node ./server/index.js",
-    "start": "NODE_ENV=production node ./server/index.js",
+    "start": "NODE_ENV=production nodemon ./server/index.js",
     "test": "jest --detectOpenHandles",
     "setup": "node ./database/setup/index.js",
     "setup:test": "node ./database/test/setup.js"
