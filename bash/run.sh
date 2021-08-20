@@ -10,7 +10,7 @@ then
   PORT_MAP='3000:3000'
   NAME='qanda-service'
   FULL_SERVICE=$USER'/'$IMAGE:$TAG
-  CMD='docker run -dp '$PORT_MAP' --name='$NAME' '$FULL_SERVICE
+  CMD='docker run -dp '$PORT_MAP' --name='$NAME' '$FULL_SERVICE' && '
   RUN=true
 elif [[ $1 = 'db' ]]
 then
@@ -20,14 +20,14 @@ then
   DB_NAME='database'
   DB_LOCATION='/var/lib/postgresql/data'
   FULL_SERVICE=$USER'/'$IMAGE:$TAG
-  CMD='docker run -dp '$PORT_MAP' --name='$NAME' -v '$DB_NAME':'$DB_LOCATION' '$FULL_SERVICE
+  CMD='docker run -dp '$PORT_MAP' --name='$NAME' -v '$DB_NAME':'$DB_LOCATION' '$FULL_SERVICE' && '
   RUN=true
 elif [[ $1 = 'nginx' ]]
 then
   NAME='nginx'
   PORT_MAP='80:80'
   FULL_SERVICE=$USER'/'$IMAGE:$TAG
-  CMD='docker run -dp '$PORT_MAP' --name '$NAME' '$FULL_SERVICE
+  CMD='docker run -dp '$PORT_MAP' --name '$NAME' '$FULL_SERVICE' && '
   RUN=true
 fi
 
