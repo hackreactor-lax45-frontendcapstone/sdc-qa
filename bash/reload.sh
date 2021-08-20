@@ -37,7 +37,7 @@ then
   STOP='docker stop '$IMAGE' && '
   REMOVE='docker rm '$IMAGE' && '
   STATUS='docker ps -a'
-  echo $PULL$STOP$REMOVE$CMD$STATUS
+  eval $PULL$STOP$REMOVE$CMD$STATUS
 else
   echo '\nUnknown image entered.\n'
 fi
