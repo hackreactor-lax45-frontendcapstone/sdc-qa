@@ -4,11 +4,11 @@
 *.zip
 *config.js
 *.pem
-*login.sh
 *cookie
 newrelic.js
 *.sql
 loaderio*
+login.sh
 login*.sh
 nginx.conf
 

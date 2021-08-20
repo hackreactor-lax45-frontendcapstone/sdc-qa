@@ -1,17 +1,40 @@
 #!/bin/bash
 
-if [[ $1 = qanda ]]
+USER='lawlorseanr'
+TAG='latest'
+
+RUN=false
+if [[ $1 = 'qanda' ]]
 then
-  echo docker run -dp 3000:3000 --name=qanda-service lawlorseanr/qanda-service:latest
-elif [[ $1 = db ]]
+  IMAGE='qanda-service'
+  PORT_MAP='3000:3000'
+  NAME='qanda-service'
+  FULL_SERVICE=$USER'/'$IMAGE:$TAG
+  CMD='docker run -dp '$PORT_MAP' --name='$NAME' '$FULL_SERVICE
+  RUN=true
+elif [[ $1 = 'db' ]]
 then
-  echo docker run -d --name postgres-db -p 5432:5432 -v database:/var/lib/postgresql/data lawlorseanr/postgres-db:latest
-elif [[ $1 = load ]]
+  IMAGE='postgres-db'
+  PORT_MAP='5432:5432'
+  NAME='postgres-db'
+  DB_NAME='database'
+  DB_LOCATION='/var/lib/postgresql/data'
+  FULL_SERVICE=$USER'/'$IMAGE:$TAG
+  CMD='docker run -dp '$PORT_MAP' --name='$NAME' -v '$DB_NAME':'$DB_LOCATION' '$FULL_SERVICE
+  RUN=true
+elif [[ $1 = 'nginx' ]]
 then
-  echo docker run --name nginx-loadbalance -d -p 80:80 lawlorseanr/nginx-loadbalance:latest
-else
-  echo '\n Unknown image selected.'
+  NAME='nginx'
+  PORT_MAP='80:80'
+  FULL_SERVICE=$USER'/'$IMAGE:$TAG
+  CMD='docker run -dp '$PORT_MAP' --name '$NAME' '$FULL_SERVICE
+  RUN=true
 fi
 
-
-
+if [[ $RUN = true ]]
+then
+  STATUS='docker ps -a'
+  eval $CMD$STATUS
+else
+  echo '\nUnknown image entered.\n'
+fi

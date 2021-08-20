@@ -31,8 +31,13 @@ then
   RUN=true
 fi
 
-PULL='docker pull '$FULL_SERVICE
-STOP='docker stop '$IMAGE
-REMOVE='docker rm '$IMAGE
-STATUS='docker ps -a'
-eval $PULL' && '$STOP' && '$REMOVE' && '$CMD' && '$STATUS
+if [[ $RUN = true ]]
+then
+  PULL='docker pull '$FULL_SERVICE' && '
+  STOP='docker stop '$IMAGE' && '
+  REMOVE='docker rm '$IMAGE' && '
+  STATUS='docker ps -a'
+  eval $PULL$STOP$REMOVE$CMD$STATUS
+else
+  echo '\nUnknown image entered.\n'
+fi
