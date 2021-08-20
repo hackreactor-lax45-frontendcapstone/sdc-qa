@@ -10,6 +10,7 @@ newrelic.js
 *.sql
 loaderio*
 login*.sh
+nginx.conf
 
 # Logs
 logs
