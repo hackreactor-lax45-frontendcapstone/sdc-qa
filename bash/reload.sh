@@ -1,19 +1,38 @@
 #!/bin/bash
 
 USER='lawlorseanr'
-IMAGE='qanda-service'
 TAG='latest'
-PORT_FROM=3000
-PORT_TO=3000
-NAME='qanda-service'
 
-FULL_SERVICE=$USER'/'$IMAGE:$TAG
-PORT_MAP=$PORT_FROM':'$PORT_TO
+RUN=false
+if [[ $1 = 'qanda' ]]
+then
+  IMAGE='qanda-service'
+  PORT_MAP='3000:3000'
+  NAME='qanda-service'
+  FULL_SERVICE=$USER'/'$IMAGE:$TAG
+  CMD='docker run -dp '$PORT_MAP' --name='$NAME' '$FULL_SERVICE
+  RUN=true
+elif [[ $1 = 'db' ]]
+then
+  IMAGE='postgres-db'
+  PORT_MAP='5432:5432'
+  NAME='postgres-db'
+  DB_NAME='database'
+  DB_LOCATION='/var/lib/postgresql/data'
+  FULL_SERVICE=$USER'/'$IMAGE:$TAG
+  CMD='docker run -dp '$PORT_MAP' --name='$NAME' -v '$DB_NAME':'$DB_LOCATION' '$FULL_SERVICE
+  RUN=true
+elif [[ $1 = 'nginx' ]]
+then
+  NAME='nginx'
+  PORT_MAP='80:80'
+  FULL_SERVICE=$USER'/'$IMAGE:$TAG
+  CMD='docker run -dp '$PORT_MAP' --name '$NAME' '$FULL_SERVICE
+  RUN=true
+fi
 
 PULL='docker pull '$FULL_SERVICE
 STOP='docker stop '$IMAGE
 REMOVE='docker rm '$IMAGE
-RUN='docker run -dp '$PORT_MAP' --name='$NAME' '$FULL_SERVICE
 STATUS='docker ps -a'
-
-eval $PULL' && '$STOP' && '$REMOVE' && '$RUN' && '$STATUS
+eval $PULL' && '$STOP' && '$REMOVE' && '$CMD' && '$STATUS
