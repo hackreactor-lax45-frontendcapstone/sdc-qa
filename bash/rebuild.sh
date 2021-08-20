@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 DIRECTORY='/Users/lawlorseanr/hackreactor/senior/sdc-qa'
 USER='lawlorseanr'

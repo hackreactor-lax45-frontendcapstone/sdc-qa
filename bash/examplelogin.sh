@@ -1,5 +1,5 @@
-#!/bin/bash
-DIRECTORY='ssh -i "'$PWD'/sdc-qanda.pem"'
+#!/bin/sh
+DIRECTORY='ssh -i "'$PWD'/<pem-key>.pem"'
 
 USER='ubuntu@'
 
