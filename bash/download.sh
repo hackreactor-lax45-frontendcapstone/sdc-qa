@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #https://stackoverflow.com/questions/48133080/how-to-download-a-google-drive-url-via-curl-or-wget
 
 # photos

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 DIRECTORY='ssh -i "'$PWD'/<pem-key>.pem"'
 
 USER='ubuntu@'
