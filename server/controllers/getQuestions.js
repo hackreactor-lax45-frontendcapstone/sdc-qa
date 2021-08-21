@@ -1,4 +1,4 @@
-const { RAW_SQL } = require('../config/constants');
+const { RAW_SQL, SERVER } = require('../config/constants');
 const db = require('../../database/index');
 
 module.exports = (req, res) => {

@@ -2,6 +2,11 @@ module.exports = {
   SERVER: {
     HOST: '0.0.0.0',
     PORT: 3000,
+    CACHES: [
+      '<ip>:11211',
+      '<ip>:11211',
+      '<ip>:11211',
+    ],
   },
   GET_QUESTIONS: {
     QUESTION_SELECT: {
