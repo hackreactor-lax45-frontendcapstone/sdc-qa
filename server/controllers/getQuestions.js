@@ -1,6 +1,6 @@
 const { RAW_SQL, SERVER } = require('../config/constants');
 const db = require('../../database/index');
-const Cache = require('../cache')
+const Cache = require('../cache');
 
 module.exports = (req, res) => {
   const { product_id } = req.query;
@@ -17,11 +17,11 @@ module.exports = (req, res) => {
             res.status(200).json(data);
           })
           .catch((error) => {
-            res.status(404).send(error);
+            res.status(404).send(`DB ERROR: ${error}`);
           });
       }
     })
     .catch((error) => {
-      res.status(404).send(error);
+      res.status(404).send(`Cache.get ERROR: ${error}`);
     });
 };
